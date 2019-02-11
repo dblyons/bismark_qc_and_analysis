@@ -1,5 +1,8 @@
 #!/bin/bash
-
+## run as: 
+## 
+## ./conversion_efficiency.sh <CX output file>
+## 
 ## approximate the bisulfite conversion of your bs-seq libs with the output of 
 ## bismark 'CX report'
 ## ( ChrPt should not be methylated )
