@@ -4,7 +4,7 @@
 ## ./conversion_efficiency.sh <CX output file>
 ## 
 ## approximate the bisulfite conversion of your bs-seq libs with the output of 
-## bismark 'CX report'
+## bismark methylation extraction 'CX report'
 ## ( ChrPt should not be methylated )
 ## :::::: obvi this is for plants only ::::::
 
