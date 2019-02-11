@@ -3,6 +3,7 @@
 ## approximate the bisulfite conversion of your bs-seq libs with the output of 
 ## bismark 'CX report'
 ## ( ChrPt should not be methylated )
+## :::::: obvi this is for plants only ::::::
 
 #sum total unconverted cytosines
 methylC=`perl -wnl -e '/ChrPt/ and print;' $1 | awk '{sum+=$4} END {print sum}'`
