@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # assumes dzlab_tools ends_analysis.pl is in your path
-# naNA.pl is provided in this directory separately
+
 
 echo
 echo " 1 extractor; 2 dir_name_and_base_gff_out; 3 anchor_file(hetero tes is /data2/dk9_jacobsen/q45...gff); 4 bin_size(for ends); 5 dist_size(for ends); 6 stopflag(0 or 6) ; 7 suffix_to_add_to_ends(e.g. q45) - currently set to run both 5 and 3"
@@ -70,7 +70,8 @@ echo 'clean and remove backed up files'
 echo
 #fix ends for R
 #by replacing 'na' with 'NA'
-naNA.pl ./*Ends/*
+
+perl -wpl -i.bak -e 's/na/NA/g;' *Ends
 
 rm ./*ends/*bak
 
