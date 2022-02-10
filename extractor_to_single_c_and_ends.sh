@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # assumes dzlab_tools ends_analysis.pl is in your path
+# naNA.pl is provided in this directory separately
 
 echo
 echo " 1 extractor; 2 dir_name_and_base_gff_out; 3 anchor_file(hetero tes is /data2/dk9_jacobsen/q45...gff); 4 bin_size(for ends); 5 dist_size(for ends); 6 stopflag(0 or 6) ; 7 suffix_to_add_to_ends(e.g. q45) - currently set to run both 5 and 3"
@@ -58,17 +59,18 @@ echo
 #do ends_analysis on file of your choice
 mkdir ./5ends
 
-for i in ./*gff; do ends_analysis.pl -g $3 -b $4 -d $5 -s $6 -5 -x ID -o ./5ends/$i.$7.5ends  $i; done
+for i in ./*gff; do ends_analysis.pl -g $3 -b $4 -d $5 -s $6 -5 -x ID -o ./5ends/$i.$7.fiveEnds  $i; done
 
 mkdir ./3ends
 
-for i in ./*gff; do ends_analysis.pl -g $3 -b $4 -d $5 -s $6 -3 -x ID -o ./3ends/$i.$7.3ends $i; done
+for i in ./*gff; do ends_analysis.pl -g $3 -b $4 -d $5 -s $6 -3 -x ID -o ./3ends/$i.$7.threeEnds $i; done
 
 echo
 echo 'clean and remove backed up files'
 echo
 #fix ends for R
-naNA.pl ./*ends/*
+#by replacing 'na' with 'NA'
+naNA.pl ./*Ends/*
 
 rm ./*ends/*bak
 
